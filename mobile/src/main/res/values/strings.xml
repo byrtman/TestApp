@@ -2,4 +2,5 @@
     <string name="app_name" translatable="false">TestApp</string>
     <string name="edit_message">Enter a message</string>
     <string name="send_button">Send</string>
+    <string name="totalMass">Total Mass</string>
 </resources>
