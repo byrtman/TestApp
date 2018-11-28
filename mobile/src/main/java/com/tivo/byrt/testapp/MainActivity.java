@@ -4,14 +4,8 @@ package com.tivo.byrt.testapp;
 import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mMassPicker = findViewById(R.id.massPicker);
-        mMassPicker.setMinValue(0);
-        mMassPicker.setMaxValue(2);
         mMassPicker.setWrapSelectorWheel(true);
-        mMassPicker.setDisplayedValues(new String[] {"121.01", "224.22", "244.32"});
+        mMassPicker.setDisplayedValues(getResources().getStringArray(R.array.chunkSizes));
+        mMassPicker.setMinValue(0);
+        mMassPicker.setMaxValue(mMassPicker.getDisplayedValues().length-1);
 
         mTableData = initData();
 
@@ -69,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         private double price;
         private double invDensity;
 
-        public OreData(String name, double price, double invDensity) {
+        private OreData(String name, double price, double invDensity) {
             this.name = name;
             this.price = price;
             this.invDensity = invDensity;
